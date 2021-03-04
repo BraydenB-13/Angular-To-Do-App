@@ -13,5 +13,11 @@ export class MainBodyComponent implements OnInit {
   }
 
   checked: Boolean = false;
-  toDoList: Array<String> = ["Go To Work", "Watch TV", "Feed The Dog", "Go To Sleep"]
+  toDoList: Array<String> = ["Go To Work", "Watch TV", "Feed The Dog", "Go To Sleep"];
+  newItem: String;
+
+  addItem() {
+    this.toDoList.push(this.newItem);
+    this.newItem = "";
+  }
 }

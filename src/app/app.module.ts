@@ -12,6 +12,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MatListModule } from '@angular/material/list';
     MatCheckboxModule,
     MatCardModule,
     FormsModule,
-    MatListModule
+    MatListModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
