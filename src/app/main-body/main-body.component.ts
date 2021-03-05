@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from './user';
 
 @Component({
   selector: 'app-main-body',
@@ -12,12 +13,25 @@ export class MainBodyComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  checked: Boolean = false;
-  toDoList: Array<String> = ["Go To Work", "Watch TV", "Feed The Dog", "Go To Sleep"];
-  newItem: String;
+  toDoList: Array<User> = [{description:"Go To Work", isComplete: false}, 
+  {description:"Watch TV", isComplete: false},
+  {description:"Feed the dog", isComplete: false}, 
+  {description:"Go To Sleep", isComplete: false}];
 
-  addItem() {
+  newItem: User = {
+    description: "",
+    isComplete: false
+  };
+
+  addItem() { 
     this.toDoList.push(this.newItem);
-    this.newItem = "";
+  }
+
+  removeItem() {
+    for (let i = 0; i < this.toDoList.length; i++) {
+      if (this.toDoList[i].isComplete == true) {
+        this.toDoList.splice(i, 1);
+      }
+    }
   }
 }
