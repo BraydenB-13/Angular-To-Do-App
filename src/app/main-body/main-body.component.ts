@@ -19,19 +19,22 @@ export class MainBodyComponent implements OnInit {
   {description:"Go To Sleep", isComplete: false}];
 
   newItem: User = {
-    description: "",
+    description: null,
     isComplete: false
   };
 
-  addItem() { 
-    this.toDoList.push(this.newItem);
+  addItem() {
+    this.toDoList.push({description: this.newItem.description, isComplete: false});
+    this.newItem.description = "";
   }
 
   removeItem() {
+    var newArr = [];
     for (let i = 0; i < this.toDoList.length; i++) {
-      if (this.toDoList[i].isComplete == true) {
-        this.toDoList.splice(i, 1);
+      if (this.toDoList[i].isComplete == false) {
+        newArr.push(this.toDoList[i]);
       }
     }
+    this.toDoList = newArr;
   }
 }
